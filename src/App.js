@@ -34,18 +34,29 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>Minhas Notas</h1>
-      <input
-        onChange={e => setFormData({ ...formData, 'name': e.target.value})}
-        placeholder="Nome da nota"
-        value={formData.name}
-      />
-      <input
-        onChange={e => setFormData({ ...formData, 'description': e.target.value})}
-        placeholder="Descrição"
-        value={formData.description}
-      />
+    <div className="App container">
+    <div className="row">
+    <div className="col">
+      <div className="fs-1">Minhas Notas</div>
+      <div className="mb-3">
+        <label className="form-label">Nome da nota</label>
+        <input
+            className="form-control"
+            onChange={e => setFormData({ ...formData, 'name': e.target.value})}
+            placeholder="Nome da nota"
+            value={formData.name}
+          />
+      </div>
+      
+      <div className="mb-3">
+        <label className="form-label">Descrição</label>
+        <input
+          className="form-control"
+          onChange={e => setFormData({ ...formData, 'description': e.target.value})}
+          placeholder="Descrição"
+          value={formData.description}
+        />
+      </div>
       <button onClick={createNote}>Criar Nota</button>
       <div style={{marginBottom: 30}}>
         {
@@ -59,6 +70,8 @@ function App() {
         }
       </div>
       <AmplifySignOut />
+    </div>
+    </div>
     </div>
   );
 }
