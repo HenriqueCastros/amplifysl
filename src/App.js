@@ -57,14 +57,18 @@ function App() {
           value={formData.description}
         />
       </div>
-      <button onClick={createNote}>Criar Nota</button>
+      <button type="button" className="btn btn-primary" onClick={createNote}>Criar Nota</button>
       <div style={{marginBottom: 30}}>
         {
           notes.map(note => (
             <div key={note.id || note.name}>
-              <h2>{note.name}</h2>
-              <p>{note.description}</p>
-              <button onClick={() => deleteNote(note)}>Deletar nota</button>
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{note.name}</h5>
+                  <p class="card-text">{note.description}</p>
+                  <button  type="button" className="btn btn-danger" onClick={() => deleteNote(note)}>Deletar nota</button>
+                </div>
+              </div>
             </div>
           ))
         }
